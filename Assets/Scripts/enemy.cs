@@ -36,6 +36,13 @@ public class enemy : MonoBehaviour
         
     }
 
+    IEnumerator waitforDamageCoroutine()
+    {
+      
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(2);
+        player.GetComponent<PlayerStats>().Health += -0.1f;
+    }
     private void LateUpdate()
     {
         
@@ -49,7 +56,8 @@ public class enemy : MonoBehaviour
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
         {
-            Debug.Log("Enemy is attacking");
+
+            StartCoroutine(waitforDamageCoroutine());
         }
     }
 }
