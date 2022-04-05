@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 m_NewForce = new Vector3(0, jumpHeight, 0);
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         rb.AddForce(m_NewForce,ForceMode.Impulse);
         
     }
@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            moveSpeed = 8;
+            moveSpeed = 2;
         }
         var trans = transform;
         rb.MovePosition(trans.position + vertical * moveSpeed * 0.01f * trans.forward);
