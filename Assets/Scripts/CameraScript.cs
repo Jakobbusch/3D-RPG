@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
+    public Boolean moveBool = true;
     public Transform player;
 
     public float xCamera;
@@ -13,7 +15,18 @@ public class CameraScript : MonoBehaviour
     
     // Update is called once per frame
     void Update () {
-        transform.position = player.transform.position + new Vector3(xCamera, yCamera, zCamera);
+        if (moveBool)
+        {
+            transform.position = player.transform.position + new Vector3(xCamera, yCamera, zCamera);
+        }
+        
       
     }
+
+    public void move()
+    {
+        moveBool = false;
+    }
+
+   
 }

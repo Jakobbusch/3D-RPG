@@ -11,10 +11,11 @@ public class chest : MonoBehaviour
 {
     public GameObject maincam;
     public GameObject chestcam;
-    
-    
+    [SerializeField]
+    private GameObject openChest;
     public GameObject player;
-    public GameObject chestText;
+    [SerializeField]
+    private GameObject chestText;
     private bool indistance = false;
     private GameObject chestCamera;
     
@@ -41,6 +42,8 @@ public class chest : MonoBehaviour
             //chestcam.enabled = true;
             maincam.SetActive(false);
             chestcam.SetActive(true);
+            gameObject.SetActive(false);
+            openChest.SetActive(true);
 
         }
     }

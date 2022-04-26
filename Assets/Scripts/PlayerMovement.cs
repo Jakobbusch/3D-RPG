@@ -21,6 +21,14 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
     private bool grounded;
+    private Vector3 initGoal = new Vector3(0.719299972f, 1.84130001f, 0.358099997f);
+    private Vector3 goal = new Vector3(0.713199973f, 1.61549997f, 0.353799999f);
+    private bool transporting = false;
+    private bool initialTrans = false;
+    
+    [SerializeField]
+    private GameObject camera;
+    
 
     private readonly int speedHash = Animator.StringToHash("Speed");
     private readonly int jumpHash = Animator.StringToHash("Jump");
@@ -31,18 +39,56 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
-        jump = Input.GetButtonDown("Jump");
-
-        if (isgrounded == true)
+        if (transporting)
         {
-            if (jump && !anim.GetCurrentAnimatorStateInfo(0).IsName("BaseLayer.Jump")) {
-                anim.SetTrigger(jumpHash);
+            var step =  0.5f * Time.deltaTime; //
+            var schaleChange = new Vector3(-0.001f, -0.001f, -0.001f);
+            Quaternion target = Quaternion.Euler(0,365,0);
+            //transform.rotation = Quaternion.Slerp(transform.rotation,target,Time.deltaTime*100);
+            transform.Rotate(0,200*Time.deltaTime,0);
+            if (!initialTrans)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, initGoal, step);
+                if (transform.localScale.x >= 0.05)
+                {
+                    transform.localScale += schaleChange;
+                }
+                else
+                {
+                    initialTrans = true;
+                }
+                
+            }
+            else
+            {
+                
+                
+                transform.position = Vector3.MoveTowards(transform.position, goal, step);
+                if (transform.localScale.x >= 0.01)
+                {
+                    transform.localScale += schaleChange;
+                }
+                
+                //transform.Translate(Vector3.forward*Time.deltaTime);
+            }
             
-                StartCoroutine(ExampleCoroutine());
+        }
+        else
+        {
+            vertical = Input.GetAxis("Vertical");
+            horizontal = Input.GetAxis("Horizontal");
+            jump = Input.GetButtonDown("Jump");
+
+            if (isgrounded == true)
+            {
+                if (jump && !anim.GetCurrentAnimatorStateInfo(0).IsName("BaseLayer.Jump")) {
+                    anim.SetTrigger(jumpHash);
+            
+                    StartCoroutine(ExampleCoroutine());
+                }
             }
         }
+        
       
     }
 
@@ -92,4 +138,16 @@ public class PlayerMovement : MonoBehaviour
         
             
     }
+
+    public void transport()
+    {   
+        camera.GetComponent<CamExperi>().move();
+        transporting = true;
+        Debug.Log("Transportation");
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+
+    }
+
+
 }
