@@ -63,22 +63,25 @@ public class LockPlayer : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("ground"))
         {
-            Debug.Log("on ground");
             isgrounded = true; 
         }
 
         if (collision.gameObject.CompareTag("barrel"))
         {
-            // Play hit sound, and maybe effect on screen
             transform.position = startPos;
+            isgrounded = true;
+        }else if (collision.gameObject.CompareTag("Respawn"))
+        {
+            transform.position = startPos;
+            isgrounded = true;
         }
+        
     }
 
     private void OnCollisionExit(Collision other)
     {
         if(other.gameObject.CompareTag("ground"))
         {
-            Debug.Log("off ground");
             isgrounded = false;
         }
     }
@@ -88,9 +91,8 @@ public class LockPlayer : MonoBehaviour
         anim.SetFloat(speedHash, horizontal);
 
         var trans = transform;
-        if (horizontal < 0)
+        if (horizontal <= 0)
         {
-            Debug.Log("Rotate");
             trans.rotation = new Quaternion(0, 0, 0, 1);
             rotated = true;
 

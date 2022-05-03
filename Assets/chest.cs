@@ -44,6 +44,7 @@ public class chest : MonoBehaviour
             chestcam.SetActive(true);
             gameObject.SetActive(false);
             openChest.SetActive(true);
+            player.SetActive(false);
 
         }
     }
