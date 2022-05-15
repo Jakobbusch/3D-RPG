@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float rotationalSpeed;
 
+
+    private Vector3 checkpoint; 
+    
     [SerializeField]
     private float moveSpeed;
 
@@ -88,12 +91,15 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        
+
+       
       
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        
+    
         if(collision.gameObject.CompareTag("ground"))
         {
             Debug.Log("on ground");
@@ -126,11 +132,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (vertical < -0.2)
         {
-            moveSpeed = 1;
+            moveSpeed = 2;
         }
         else
         {
-            moveSpeed = 2;
+            moveSpeed = 8;
         }
         var trans = transform;
         rb.MovePosition(trans.position + vertical * moveSpeed * 0.01f * trans.forward);

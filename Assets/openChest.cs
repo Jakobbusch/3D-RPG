@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class openChest : MonoBehaviour
 {
@@ -23,11 +24,22 @@ public class openChest : MonoBehaviour
         {
             Debug.Log("Animate stuff");
             player.GetComponent<PlayerMovement>().transport();
-            
+            StartCoroutine(LoadYourAsyncScene());
         }
 
     }
-    
+    IEnumerator LoadYourAsyncScene()
+    {
+       
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("New Scene");
+
+       
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         
