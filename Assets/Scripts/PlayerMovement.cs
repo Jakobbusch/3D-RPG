@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField]
     private float moveSpeed;
+    [SerializeField]
+    private float revSpeed;
+    private float currentSpeed = 0;
 
     [SerializeField]
     private float jumpHeight;
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake() {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        currentSpeed = moveSpeed;
     }
 
     private void Update() {
@@ -107,6 +111,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision other)
+    {
+        if(other.gameObject.CompareTag("ground"))
+        {
+            isgrounded = true; 
+        }
+    }
+
     private void OnCollisionExit(Collision other)
     {
         if(other.gameObject.CompareTag("ground"))
@@ -129,17 +141,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() {
         anim.SetFloat(speedHash, vertical);
+        
 
         if (vertical < -0.2)
         {
-            moveSpeed = 2;
+            currentSpeed = revSpeed;
         }
         else
         {
-            moveSpeed = 8;
+            currentSpeed = moveSpeed;
         }
         var trans = transform;
-        rb.MovePosition(trans.position + vertical * moveSpeed * 0.01f * trans.forward);
+        rb.MovePosition(trans.position + vertical * currentSpeed * 0.01f * trans.forward);
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0f, horizontal * rotationalSpeed, 0f)));
         
             

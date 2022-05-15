@@ -51,7 +51,7 @@ public class LockPlayer : MonoBehaviour
     IEnumerator ExampleCoroutine()
     {
         
-        Vector3 m_NewForce = new Vector3(0, jumpHeight, 0);
+        Vector3 m_NewForce = new Vector3(0.1f, jumpHeight, 0);
 
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(0.3f);
@@ -59,6 +59,13 @@ public class LockPlayer : MonoBehaviour
         
     }
     
+    private void OnCollisionStay(Collision other)
+    {
+        if(other.gameObject.CompareTag("ground"))
+        {
+            isgrounded = true; 
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("ground"))

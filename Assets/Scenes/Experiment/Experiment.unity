@@ -2641,7 +2641,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationalSpeed: 3
-  moveSpeed: 1
+  moveSpeed: 1.5
+  revSpeed: 1
   jumpHeight: 2
   camera: {fileID: 1616273747}
 --- !u!114 &733397043
@@ -3954,8 +3955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3372ce50e9ea334588a2cdb83d3fdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  jumpHeight: 1
+  moveSpeed: 1.1
+  jumpHeight: 2
 --- !u!82 &1069984688
 AudioSource:
   m_ObjectHideFlags: 0
