@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LockerCoin : MonoBehaviour
 {
-    public float rotationSpeed = 60;
-    public GameObject maincam;
-    public GameObject chestcam;
+    [SerializeField]
+    private float rotationSpeed = 60;
+    [SerializeField]
+    private GameObject maincam;
+    [SerializeField]
+    private GameObject chestcam;
+
+    [SerializeField] private GameObject player;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -21,15 +28,17 @@ public class LockerCoin : MonoBehaviour
         
         
     }
-    
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player"))
         {
             // win wuhu do some effect and go back to game
             gameObject.SetActive(false);
+            player.SetActive(true);
             chestcam.SetActive(false);
             maincam.SetActive(true);
+            
 
 
 
