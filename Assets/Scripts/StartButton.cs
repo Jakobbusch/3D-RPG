@@ -25,7 +25,7 @@ public class StartButton : MonoBehaviour
     {
        
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Experiment");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level 1");
 
        
         while (!asyncLoad.isDone)

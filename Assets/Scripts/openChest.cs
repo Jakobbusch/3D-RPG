@@ -39,7 +39,7 @@ public class openChest : MonoBehaviour
     {
         
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("New Scene");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level 2");
 
        
         while (!asyncLoad.isDone)
