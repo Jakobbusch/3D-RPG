@@ -22,13 +22,7 @@ public class chest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //maincam.enabled = true;
-        //chestcam.enabled = false;
-        //chestCamera = chestcam.GetComponent<GameObject>();
         chestcam.SetActive(false);
-        
-
-
     }
 
     // Update is called once per frame
@@ -36,25 +30,18 @@ public class chest : MonoBehaviour
     {
         if (indistance && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Open chest");
-            
-            //maincam.enabled = false;
-            //chestcam.enabled = true;
             maincam.SetActive(false);
             chestcam.SetActive(true);
             gameObject.SetActive(false);
             openChest.SetActive(true);
             player.SetActive(false);
-
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
         chestText.SetActive(true);
         indistance = true;
-
     }
 
     private void OnTriggerExit(Collider other)

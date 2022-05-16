@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43726084, g: 0.75450844, b: 1.0290486, a: 1}
+  m_IndirectSpecularColor: {r: 0.4372612, g: 0.754508, b: 1.0290478, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6046,10 +6046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 733397041}
-  of: 0
   setup: {x: 0, y: 0.3, z: 0}
   offsetDistance: 0.7
-  rotateSpeed: 3
 --- !u!82 &1616273752
 AudioSource:
   m_ObjectHideFlags: 0

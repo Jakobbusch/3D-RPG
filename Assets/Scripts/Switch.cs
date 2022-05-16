@@ -23,8 +23,6 @@ public class Switch : MonoBehaviour
             {
                 cyl.transform.Rotate(0,30*Time.deltaTime,0);
             }
-            
-            
         }
     }
 

@@ -25,23 +25,16 @@ public class LockerCoin : MonoBehaviour
     void Update()
     {
         transform.Rotate(0,rotationSpeed * Time.deltaTime,0,Space.World);
-        
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            // win wuhu do some effect and go back to game
             gameObject.SetActive(false);
             player.SetActive(true);
             chestcam.SetActive(false);
             maincam.SetActive(true);
-            
-
-
-
         }
     }
 }

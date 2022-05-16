@@ -52,8 +52,6 @@ public class LockPlayer : MonoBehaviour
     {
         
         Vector3 m_NewForce = new Vector3(0.1f, jumpHeight, 0);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(0.3f);
         rb.AddForce(m_NewForce,ForceMode.Impulse);
         
@@ -102,7 +100,6 @@ public class LockPlayer : MonoBehaviour
         {
             trans.rotation = new Quaternion(0, 0, 0, 1);
             rotated = true;
-
         }
         else
         {
@@ -117,10 +114,6 @@ public class LockPlayer : MonoBehaviour
         else
         {
             rb.MovePosition(trans.position + horizontal * moveSpeed * 0.01f * trans.forward);
-            //rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0f, horizontal * rotationalSpeed, 0f)));
         }
-        
-        
-            
     }
 }

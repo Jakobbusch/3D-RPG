@@ -27,15 +27,12 @@ public class Roller : MonoBehaviour
             anim.SetBool("Roll",true);
             timer = 0;
             StartCoroutine(wait());
-            //Instantiate(barrel, transform.position, Quaternion.identity);
-
             StartCoroutine(yell());
         }
     }
 
     IEnumerator wait()
     {
-        //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(1.3f);
         anim.SetBool("Roll",false);
         GameObject barrelClone = Instantiate(barrel, transform.position+new Vector3(0,0.03f,0.25f), Quaternion.Euler(0,0,90));
