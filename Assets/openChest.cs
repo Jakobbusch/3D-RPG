@@ -24,13 +24,20 @@ public class openChest : MonoBehaviour
         {
             Debug.Log("Animate stuff");
             player.GetComponent<PlayerMovement>().transport();
+            StartCoroutine(Time());
             StartCoroutine(LoadYourAsyncScene());
         }
 
     }
+
+    IEnumerator Time()
+    {
+        yield return new WaitForSeconds(3);
+    }
+    
     IEnumerator LoadYourAsyncScene()
     {
-       
+        
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("New Scene");
 
