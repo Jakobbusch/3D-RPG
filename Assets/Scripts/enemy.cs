@@ -48,7 +48,7 @@ public class enemy : MonoBehaviour
         
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Walk"))
         {
-            //rb.MovePosition(transform.up*0.01f);
+            
             transform.LookAt(player.transform);
             rb.AddRelativeForce(Vector3.forward*1f*moveSpeed,ForceMode.Force);
            

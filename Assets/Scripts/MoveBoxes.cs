@@ -41,8 +41,8 @@ public class MoveBoxes : MonoBehaviour
         back = new Vector3(firstX, firsty, firstz);
         forth = new Vector3(secondX, secondy, secondz);
         
-        m_Rigidbody.MovePosition(Vector3.Lerp(back, forth, phase));   //phase determines (in percent, basically) where on the line between the points "back" and "forth" you want the enemy to be placed, so if we gradually increase/decrease the variable, it makes the enemy move between those two points.
-        phase += Time.deltaTime * speed * phaseDirection; //subtracts from 1 to zero when phaseDirection is negative, adds from zero to one when phaseDirection is positive.
-        if(phase >= 1 || phase <= 0) phaseDirection *= -1; //flip the sign to flip direction
+        m_Rigidbody.MovePosition(Vector3.Lerp(back, forth, phase));  
+        phase += Time.deltaTime * speed * phaseDirection; 
+        if(phase >= 1 || phase <= 0) phaseDirection *= -1; 
     }
 }

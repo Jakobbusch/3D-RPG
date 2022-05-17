@@ -17,7 +17,7 @@ public class openChest : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (indistance && Input.GetKeyDown(KeyCode.E))

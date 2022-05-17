@@ -29,9 +29,9 @@ public class CamExperi : MonoBehaviour
     {
         if (moveBool)
         {
-            //set camera position
+           
             transform.position = positionForCamera;
-            //set camera rotation
+            
             transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position, Vector3.up);
         }
         

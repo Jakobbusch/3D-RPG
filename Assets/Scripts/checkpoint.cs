@@ -33,7 +33,7 @@ public class checkpoint : MonoBehaviour
       
         if (player.GetComponent<Rigidbody>().position.y <= -5f)
         {
-            Debug.Log("hello2");
+          
             player.GetComponent<Rigidbody>().transform.position = checkposition;
         }
     }
@@ -44,7 +44,7 @@ public class checkpoint : MonoBehaviour
             if(collision.gameObject.CompareTag("Player"))
             {
                 check = true;
-                Debug.Log("hello");
+              
 
             }
             

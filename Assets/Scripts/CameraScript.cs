@@ -13,7 +13,7 @@ public class CameraScript : MonoBehaviour
     public float zCamera;
     
     
-    // Update is called once per frame
+    
     void Update () {
         if (moveBool)
         {

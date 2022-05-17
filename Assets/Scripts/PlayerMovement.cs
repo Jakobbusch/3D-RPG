@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         
         Vector3 m_NewForce = new Vector3(0, jumpHeight, 0);
 
-        //yield on a new YieldInstruction that waits for 5 seconds.
+      
         yield return new WaitForSeconds(0.3f);
         rb.AddForce(m_NewForce,ForceMode.Impulse);
         

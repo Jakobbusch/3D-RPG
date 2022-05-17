@@ -27,7 +27,7 @@ public class PlayerSounds : MonoBehaviour
 
     private AudioClip getRandom()
     {
-        //return audioClips[Random.Range(0,audioClips.Length)];
+       
         return audioClips[Random.Range(0,1)];
     }
 

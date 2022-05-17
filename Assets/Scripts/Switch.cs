@@ -6,15 +6,15 @@ using UnityEngine;
 public class Switch : MonoBehaviour
 {
     private bool Pushing = false;
-[SerializeField]
+    [SerializeField]
     private GameObject cyl;
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Pushing)

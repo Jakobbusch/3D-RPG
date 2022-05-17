@@ -11,14 +11,14 @@ public class barrel : MonoBehaviour
     private Rigidbody rb;
     
     private AudioSource audioSource;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         if (rb.velocity.x > 0 | rb.velocity.y > 0 | rb.velocity.z > 0)
@@ -27,7 +27,7 @@ public class barrel : MonoBehaviour
             {
                 audioSource.PlayOneShot(audioClips[0]);
             }
-            //audioSource.PlayOneShot(audioClips[0]);
+           
         }
         
     }

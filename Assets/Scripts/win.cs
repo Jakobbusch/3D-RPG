@@ -20,13 +20,13 @@ public class win : MonoBehaviour
 
     [SerializeField]
     private AudioClip clip;
-    // Start is called before the first frame update
+
     void Awake()
     {
         source = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
